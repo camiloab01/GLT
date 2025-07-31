@@ -7,9 +7,9 @@ import { AccessControl } from "@openzeppelin/contracts@4.6.0/access/AccessContro
 contract GaryERC20 is ERC20, AccessControl {
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
-    constructor() ERC20("My Gary Token", "GLT") {
+    constructor() ERC20("Gary Token", "GLT") {
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
-        _grantRole(MINTER_ROLE, msg.sender);    
+        _grantRole(MINTER_ROLE, msg.sender);
     }
 
     function mint(address to, uint256 amount) public onlyRole(MINTER_ROLE) {
